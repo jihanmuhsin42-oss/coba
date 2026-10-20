@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untuk Bunga 🌸 — Halo, kamu ada di sini</title>
+<meta name="description" content="Sebuah pesan kecil bunga-bunga untuk Bunga.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<canvas id="petal-canvas"></canvas>
+<div class="bg-blooms" id="hearts">
+  <div class="blob"></div><div class="blob"></div><div class="blob"></div>
+</div>
+
+<div class="page">
+
+  <!-- LANGKAH -->
+  <div class="steps">
+    <div class="step active"><span class="dot">1</span><span>Basabasi</span></div>
+    <div class="step-line"></div>
+    <div class="step"><span class="dot">2</span><span>Tanya-tanya</span></div>
+    <div class="step-line"></div>
+    <div class="step"><span class="dot">3</span><span>Jawabannya</span></div>
+  </div>
+
+  <div class="card">
+    <div data-flower style="--fsize:110px; margin:0 auto 18px"></div>
+
+    <h1 class="title">Halo, Bunga… 🌷</h1>
+
+    <p class="text typed" data-type="Boleh aku panggil kamu “Bunga”?(boleh banget 🙈) Aku nggak suka bunga yang dipetik, lho."></p>
+
+    <p class="text">
+      Namamu bunga, dan bunga nggak pernah gagal bikin aku senyum
+      tanpa aku sadari. Aku bikin halaman ini khusus buat kamu — pelan-pelan,
+      satu-satu, persis kayak bunga mekar 🌸
+    </p>
+
+    <p class="text">
+      Nggak perlu buru-buru. Cuma ada 3 halaman, dan di ujungnya ada satu
+      pertanyaan yang pengen aku tanyain langsung ke kamu.
+      <span class="chip">🌿 Tenang, aman kok</span>
+      <span class="chip">💌 Ada pesan di akhir</span>
+    </p>
+
+    <div class="btn-row">
+      <a class="btn" href="pertanyaan.html">Mulai, aku siap 🌸</a>
+      <a class="btn soft" href="#bunga">Lihat bunga dulu</a>
+    </div>
+
+    <p class="signature" style="margin-top:24px">— dari seseorang yang suka kamu 🌷</p>
+  </div>
+
+  <div class="card" id="bunga">
+    <h2 class="subtitle">Bunga-bunga kecil yang kuingat tiap kamu lewat</h2>
+    <div style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:10px">
+      <div data-flower style="--fsize:86px; --pc:#ffb3cd"></div>
+      <div data-flower style="--fsize:64px; --pc:#e2b3ff; animation-delay:.3s"></div>
+      <div data-flower style="--fsize:100px; --pc:#ffc9b3; animation-delay:.6s"></div>
+    </div>
+    <p class="text" style="margin-top:18px">
+      Kayak begini nih rasanya tiap kamu senyum. Tombol di bawah buat lanjut ya 🌷
+    </p>
+    <div class="btn-row">
+      <a class="btn" href="pertanyaan.html">Lanjut ke tanya-tanya ✨</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>🌸 dibuat dengan sayang, buat Bunga</footer>
+<button class="sound-btn" id="soundBtn" title="Putar suara lembut">🔇</button>
+
+<script src="assets/js/bunga.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

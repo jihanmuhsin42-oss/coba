@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pesannya sudah siap, Bunga 💌</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💌</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<canvas id="petal-canvas"></canvas>
+<div class="bg-blooms" id="hearts">
+  <div class="blob"></div><div class="blob"></div><div class="blob"></div>
+</div>
+
+<div class="page">
+
+  <div class="card">
+    <div data-flower style="--fsize:78px; margin:0 auto 12px"></div>
+    <h1 class="title" id="judul">Pesannya sudah siap 💌</h1>
+    <p class="subtitle" id="subjudul">Tinggal kirim ke Instagram ya 🌷</p>
+
+    <div class="msg-wrap">
+      <label class="q-title" for="msgBox" style="margin-bottom:8px">💌 Isi pesan kamu:</label>
+      <textarea class="msg-box" id="msgBox" spellcheck="false"></textarea>
+      <div class="copy-status" id="copyStatus">⏳ Menyiapkan pesan…</div>
+    </div>
+
+    <div class="btn-row">
+      <a class="btn ig" id="igBtn" href="https://ig.me/muh_sin.26" target="_blank" rel="noopener">
+        💬 Kirim ke Instagram @muh_sin.26
+      </a>
+      <button class="btn" id="copyBtn">📋 Salin pesan</button>
+      <button class="btn soft" id="shareBtn" hidden>📤 Bagikan</button>
+    </div>
+
+    <div class="how">
+      <b>Cara kirim (cuma 2 langkah 🌸):</b>
+      <ol style="padding-left:20px; margin:8px 0 0">
+        <li>Pesan di atas <b>sudah otomatis tersalin</b>. Kalau belum, klik <b>“📋 Salin pesan”</b> sekali.</li>
+        <li>Klik <b>“💬 Kirim ke Instagram”</b> → obrolan <b>@muh_sin.26</b> kebuka.</li>
+        <li>Tekan lama kolom chat lalu <b>Tempel</b> (di PC: <b>Ctrl+V</b>), terus tekan <b>Kirim</b>. Selesai 💗</li>
+      </ol>
+      <p style="margin:10px 0 0; font-size:.9rem; color:var(--muted)">
+        Kenapa nggak bisa terkirim sendiri? Instagram nggak mengizinkan situs mengirim
+        chat atas nama orang lain 🌿 Jadi pesannya udah aku salin otomatis — tinggal
+        <b>tempel &amp; kirim</b>, itu aja kok.
+      </p>
+      <p style="margin:6px 0 0; font-size:.9rem; color:var(--muted)">
+        <b>Tips:</b> di HP, tombolnya otomatis membuka aplikasi Instagram. Kalau nggak kebuka,
+        buka aplikasi IG manual → search <b>@muh_sin.26</b> → <b>Message</b> → tempel.
+      </p>
+    </div>
+
+    <div class="btn-row">
+      <a class="btn soft" href="janji.html">Kembali ke pertanyaan 💗</a>
+      <a class="btn ghost" href="index.html">Ulang dari awal 🌸</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>🌸 dari muh_sin.26 — nunggu pesan kamu, ya 🌷</footer>
+<button class="sound-btn" id="soundBtn" title="Putar suara lembut">🔇</button>
+
+<script src="assets/js/bunga.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+(function () {
+  /* ---------- Ambil jawaban dari halaman sebelumnya ---------- */
+  const params = new URLSearchParams(window.location.search);
+  const jwb = (params.get("j") || "").toLowerCase();       // "ya" atau "belum"
+  const keys = ["bunga", "sapaan", "capek", "warna"];
+  const labels = {
+    bunga: "Bunga favorit aku",
+    sapaan: "Sapaan paling aku suka",
+    capek: "Kalau aku capek, aku mau",
+    warna: "Warna favorit aku",
+  };
+
+  let answers = [];
+  try {
+    keys.forEach((k) => {
+      const v = localStorage.getItem("bq_" + k);
+      if (v) answers.push("• " + labels[k] + ": " + v);
+    });
+  } catch (_) {}
+
+  /* ---------- Susun pesan ---------- */
+  const yes = jwb !== "belum";
+  const judul = document.getElementById("judul");
+  const sub = document.getElementById("subjudul");
+  const box = document.getElementById("msgBox");
+  const status = document.getElementById("copyStatus");
+
+  if (yes) {
+    judul.textContent = "IYA-nya udah terkirim ke sini 💗";
+    sub.textContent = "Sekarang tinggal kirim ke Instagram-nya, ya 🌷";
+  } else {
+    judul.textContent = "Oke, nggak apa-apa 🌿";
+    sub.textContent = "Kalau kamu mau bilang sesuatu, ini pesannya ✨";
+  }
+
+  const isi = [
+    "Halo, Muh Sin! 💐",
+    "",
+    yes
+      ? "Aku main di web bunga-bunga tadi, dan jawabanku: IYA. IYA, aku suka kamu 💗"
+      : "Aku main di web bunga-bunga tadi. Jawabanku belum dulu ya, mohon maaf 🌿",
+    "",
+    answers.length ? "Jawaban aku:" : "",
+    answers.length ? answers.join("\n") : "",
+    answers.length ? "" : "",
+    yes
+      ? "Boleh aku chat kamu? Janji deh nggak ngeganggu. Cuma pengen lebih deket 🌸"
+      : "Kalau kamu berubah pikiran (atau mau Friend-zone dulu juga boleh), aku tetap di sini 🌷",
+    "",
+    "— Bunga 💗",
+  ].join("\n");
+
+  box.value = isi.replace(/\n{3,}/g, "\n\n").trim();
+  try { localStorage.setItem("bq_pesan", box.value); } catch (_) {}
+
+  /* ---------- Alamat Instagram ---------- */
+  const IG_USER = "muh_sin.26";
+  const IG_LINK = "https://ig.me/" + IG_USER;
+
+  /* ---------- Salin otomatis ---------- */
+  let copied = false;
+
+  function setStatus(text, cls) {
+    status.textContent = text;
+    status.className = "copy-status" + (cls ? " " + cls : "");
+  }
+
+  function copyText(t) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(t);
+    }
+    return new Promise((resolve, reject) => {
+      try {
+        box.focus();
+        box.setSelectionRange(0, t.length);
+        document.execCommand("copy") ? resolve() : reject();
+      } catch (_) {
+        reject();
+      }
+    });
+  }
+
+  function copyNow(auto) {
+    return copyText(box.value)
+      .then(() => {
+        copied = true;
+        setStatus(
+          auto
+            ? "✅ Pesan sudah tersalin! Sekarang tinggal kirim ke IG ya 💗"
+            : "✅ Tersalin! Tempel di obrolan @muh_sin.26 ya 🌷",
+          "ok"
+        );
+      })
+      .catch(() => {
+        // blokir browser -> tampilkan blok teks biar tinggal Ctrl+C / tekan-tahan
+        try {
+          box.focus();
+          box.setSelectionRange(0, box.value.length);
+        } catch (_) {}
+        setStatus(
+          "⚠️ Browser belum izinin nyalin otomatis — teksnya sudah aku blok, tekan Ctrl+C / tekan-tahan lalu Tempel ya 🙂",
+          "warn"
+        );
+      });
+  }
+
+  setTimeout(() => copyNow(true), 400);
+  // beberapa browser baru mau izin nyalin setelah interaksi pertama -> coba diam-diam
+  ["pointerdown", "keydown"].forEach((ev) =>
+    document.addEventListener(ev, function once() {
+      if (copied) return;
+      copyNow(true);
+      document.removeEventListener(ev, once);
+    }, { once: true })
+  );
+
+  document.getElementById("copyBtn").addEventListener("click", () => copyNow(false));
+
+  /* ---------- Kirim ke Instagram (salin + buka chat) ---------- */
+  const igBtn = document.getElementById("igBtn");
+  igBtn.href = IG_LINK;
+  igBtn.addEventListener("click", () => {
+    // jangan preventDefault: link-nya tetap kebuka walau JS gagal
+    igBtn.setAttribute("aria-busy", "true");
+    copyNow(true);
+    setTimeout(() => igBtn.removeAttribute("aria-busy"), 1200);
+  });
+
+  
+
+  /* ---------- Bagikan (share sheet HP, bisa pilih Instagram) ---------- */
+  const shareBtn = document.getElementById("shareBtn");
+  if (navigator.share) {
+    shareBtn.hidden = false;
+    shareBtn.addEventListener("click", () => {
+      copyNow(true);
+      navigator
+        .share({
+          title: "Pesan untuk Muh Sin",
+          text: box.value,
+        })
+        .catch(() => {});
+    });
+  }
+})();
+</script>
+</body>
+</html>

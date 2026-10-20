@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tanya-tanya singkat 🌷</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<canvas id="petal-canvas"></canvas>
+<div class="bg-blooms" id="hearts">
+  <div class="blob"></div><div class="blob"></div><div class="blob"></div>
+</div>
+
+<div class="page">
+
+  <div class="steps">
+    <div class="step"><span class="dot">✓</span><span>Basabasi</span></div>
+    <div class="step-line"></div>
+    <div class="step active"><span class="dot">2</span><span>Tanya-tanya</span></div>
+    <div class="step-line"></div>
+    <div class="step"><span class="dot">3</span><span>Jawabannya</span></div>
+  </div>
+
+  <div class="card wide">
+    <div data-flower style="--fsize:74px; --pc:#e2b3ff; margin:0 auto 10px"></div>
+    <h1 class="title">Cuma 4 pertanyaan singkat 🌸</h1>
+    <p class="subtitle">Pilih satu ya. Nggak ada jawaban yang salah di sini 🌷</p>
+
+    <div class="q-list">
+
+      <div class="q-block" data-q="bunga">
+        <div class="q-title"><span class="q-num">1</span> Bunga favorit kamu yang mana? 🌸</div>
+        <div class="options">
+          <button class="opt">Mawar</button>
+          <button class="opt">Melati</button>
+          <button class="opt">Melur</button>
+          <button class="opt">Yang punya senyum kamu 😌</button>
+        </div>
+      </div>
+
+      <div class="q-block" data-q="sapaan">
+        <div class="q-title"><span class="q-num">2</span> Sapaan paling kamu suka? 💬</div>
+        <div class="options">
+          <button class="opt">“Hai, bunga!”</button>
+          <button class="opt">“Selamat pagi”</button>
+          <button class="opt">“Kamu tahu nggak? Aku kangen”</button>
+        </div>
+      </div>
+
+      <div class="q-block" data-q="capek">
+        <div class="q-title"><span class="q-num">3</span> Kalau kamu lagi capek, kamu mau aku…?</div>
+        <div class="options">
+          <button class="opt">Dengerin curhat kamu</button>
+          <button class="opt">Kirim chat lucu biar ketawa</button>
+          <button class="opt">Diam, biar kamu tenang</button>
+          <button class="opt">Duduk di samping kamu sampai pulih</button>
+        </div>
+      </div>
+
+      <div class="q-block" data-q="warna">
+        <div class="q-title"><span class="q-num">4</span> Warna favorit kamu? 🎨</div>
+        <div class="options">
+          <button class="opt">Pink pastel</button>
+          <button class="opt">Biru langit</button>
+          <button class="opt">Hijau daun</button>
+          <button class="opt">Bebas, yang penting kamu</button>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="progress-note" id="progressNote">Sudah dijawab 0 dari 4 pertanyaan 🌷</p>
+
+    <div class="btn-row">
+      <button class="btn" id="nextBtn" disabled>Lanjut ke pertanyaan utama 💌</button>
+      <a class="btn soft" href="index.html">Kembali dulu 🍃</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>🌸 halaman 2 dari 3</footer>
+<button class="sound-btn" id="soundBtn" title="Putar suara lembut">🔇</button>
+
+<script src="assets/js/bunga.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
